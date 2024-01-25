@@ -102,3 +102,30 @@ $ braket(psi, psi^') = 0 $
 
 Since the inner product of any two diametrically opposite states is $0$, we can conclude that diametrically opposite states on the Bloch sphere are orthogonal
 
+= Question 5
+*Given*: $ket(psi) = sum_(i=1)^n alpha_i ket(u_i)$ for some basis set ${ket(u_i)}_(i=1)^n$ and probability amplitudes $alpha_i in CC$
+
+*To Prove*: $ket(psi)$ collapses to $ket(u_k)$ after measurement in the basis ${ket(u_i)}_(i=1)^n$ with probability $|alpha_k|^2$
+
+*Proof*: Born rule states that the probability of a density operator $rho$ collapsing to state $ket(u_k)bra(u_k)$ is 
+$ P = tr(ket(u_k)bra(u_k) rho) $
+
+For the vector $psi$, we have state $rho = ket(psi)bra(psi)$
+
+Now, we find the probability of $rho$ collapsing to $ket(u_k) bra(u_k)$
+
+$ P = tr(ket(u_k) bra(u_k) ket(psi) bra(psi)) $
+On using the cyclicity of trace
+$ P = tr(braket(psi, u_k) braket(u_k, psi)) $
+Since the matrix inside trace is $1 times 1$
+$ P = braket(psi, u_k) braket(u_k, psi) $
+$ P = overline(braket(u_k, psi)) braket(u_k, psi) $
+$ P = |braket(u_k, psi)|^2 $
+$ P = |bra(u_k) sum_(i=1)^n alpha_i ket(u_i)|^2 $
+$ P = | sum_(i=1)^n alpha_i bra(u_k) ket(u_i)|^2 $
+$ P = | sum_(i=1)^n alpha_i braket(u_k, u_i)|^2 $
+Since $braket(u_i, u_j) = delta_(i j)$
+$ P = | sum_(i=1)^n alpha_i delta_(k i)|^2 $
+$ P = |alpha_k|^2 $
+
+$therefore$ $ket(psi)$ collapses to $ket(u_k)$ after measurement in the basis ${ket(u_i)}_(i=1)^n$ with probability $|alpha_k|^2$
