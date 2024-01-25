@@ -4,6 +4,7 @@
 
 #let ket(x) = $lr(|#x angle.r)$
 #let bra(x) = $lr(angle.l #x |)$
+#let braket(x, y) = $lr(angle.l #x|#y angle.r)$
 #let tensor = $times.circle$
 
 = Question 1
@@ -77,3 +78,27 @@ $ tr(A tensor B) = sum_(i=1)^n tr(A_(i, i) B) $
 $ tr(A tensor B) = sum_(i=1)^n A_(i, i) tr(B) $
 $ tr(A tensor B) = tr(B) times sum_(i=1)^n A_(i, i) $
 $ tr(A tensor B) = tr(A) times tr(B) $
+
+= Question 4
+*Given*:  $ket(psi) = cos(theta/2) ket(0) + e^(i phi) sin(theta/2) ket(1)$
+
+*To Prove*: Diametrically opposite states on the Bloch sphere are orthogonal
+
+*Proof*:
+Let state $ ket(psi) = cos(theta/2) ket(0) + e^(i phi) sin(theta/2) ket(1) $
+
+Now, its diametrically opposite state is given by adding $pi$ to $theta$
+
+$ ket(psi^') = cos((theta + pi)/2) ket(0) + e^(i phi) sin((theta + pi)/2) ket(1) $
+
+$ ket(psi^') = cos(pi/2 + theta/2) ket(0) + e^(i phi) sin(pi/2 + theta/2) ket(1) $
+
+$ ket(psi^') = -sin(theta/2) ket(0) + e^(i phi) cos(theta/2) ket(1) $
+
+Now, consider
+$ braket(psi, psi^') = mat(cos(theta/2), e^(-i phi) sin(theta/2)) mat(-sin(theta/2); e^(i phi) cos(theta/2)) $
+$ braket(psi, psi^') = -cos(theta/2) sin(theta/2) + sin(theta/2) cos(theta/2) $
+$ braket(psi, psi^') = 0 $
+
+Since the inner product of any two diametrically opposite states is $0$, we can conclude that diametrically opposite states on the Bloch sphere are orthogonal
+
