@@ -82,7 +82,7 @@ $ tr(A tensor B) = tr(A) times tr(B) $
 = Question 4
 *Given*:  $ket(psi) = cos(theta/2) ket(0) + e^(i phi) sin(theta/2) ket(1)$
 
-*To Prove*: Diametrically opposite states on the Bloch sphere are orthogonal
+*To Prove*: states are diametrically opposite on Bloch sphere $<=>$ states are orthogonal
 
 *Proof*:
 Let state $ ket(psi) = cos(theta/2) ket(0) + e^(i phi) sin(theta/2) ket(1) $
@@ -102,6 +102,24 @@ $ braket(psi, psi^') = 0 $
 
 Since the inner product of any two diametrically opposite states is $0$, we can conclude that diametrically opposite states on the Bloch sphere are orthogonal
 
+*states are diametrically opposite on Bloch sphere $=>$ states are orthogonal*
+
+Now, assume two orthogonal states $ ket(psi_1) = cos(theta_1/2) ket(0) + e^(i phi_1) sin(theta_1/2) ket(1) "and" ket(psi_2) = cos(theta_2/2) ket(0) + e^(i phi_2) sin(theta_2/2) ket(1) $
+$ braket(psi_1, psi_2) = 0 $
+$ mat(cos(theta_1/2), e^(- i phi_1) sin(theta_1/2)) mat(cos(theta_2/2); e^(i phi_2)sin(theta_2/2)) = 0 $
+$ cos(theta_1/2) cos(theta_2/2) + e^i(phi_2 - phi_1) sin(theta_1/2) sin(theta_2/2) = 0 $
+$ cos(theta_1/2) cos(theta_2/2) + (cos(phi_2-phi_1) + i sin (phi_2 - phi_1)) sin(theta_1/2) sin(theta_2/2) = 0 $
+Since the imaginary part is $0$ on RHS, we have $sin(phi_2 - phi_1) = 0 => phi_2 = phi_1$
+$ cos(theta_1/2) cos(theta_2/2) + cos(0) sin(theta_1/2) sin(theta_2/2) = 0 $
+$ cos(theta_1/2) cos(theta_2/2) + sin(theta_1/2) sin(theta_2/2) = 0 $
+$ cos((theta_1 - theta_2)/2) = 0 $
+$ (theta_1 - theta_2)/2 = pi/2 $
+$ theta_1 = pi + theta_2 $
+*states are orthogonal $=>$ states are diametrically opposite on Bloch sphere*
+
+Since we have proven both sides, we can assert
+
+*states are diametrically opposite on Bloch sphere $<=>$ states are orthogonal*
 = Question 5
 *Given*: $ket(psi) = sum_(i=1)^n alpha_i ket(u_i)$ for some basis set ${ket(u_i)}_(i=1)^n$ and probability amplitudes $alpha_i in CC$
 
