@@ -4,6 +4,7 @@
 
 #let ket(x) = $lr(|#x angle.r)$
 #let bra(x) = $lr(angle.l #x |)$
+#let tensor = $times.circle$
 
 = Question 1
 *To Prove*: Any $n+1$ vectors belonging to an $n$ dimensional vector space must be linearly dependent
@@ -57,3 +58,22 @@ $ sqrt(A) = sqrt(2)ket(2)bra(2) + sqrt(-3)ket(-3)bra(-3) $
 $ sqrt(A) = 1/5(sqrt(2)mat(2; 1)mat(2, 1) + sqrt(-3)mat(1; -2)mat(1, -2)) $
 $ sqrt(A) = 1/5(sqrt(2) mat(4, 2; 2, 1) + sqrt(-3) mat(1, -2; -2, 4)) $
 $ sqrt(A) = 1/5 mat(4sqrt(2) + i sqrt(3), 2sqrt(2) - 2i sqrt(3); 2 sqrt(2) - 2 i sqrt(3), sqrt(2) + 4 i sqrt(3)) $
+
+= Question 3
+*Given*: $A$ is an $n times n $ matrix and $B$ is an $m times m$ matrix
+
+*To Prove*: $tr(A tensor B) = tr(A) times tr(B)$
+
+*Proof*:
+
+$ A tensor B = mat(A_(1, 1)B, A_(1, 2) B, dots, A_(1, n) B; 
+                   A_(2, 1) B, A_(2, 2) B, dots, A_(2, n) B;
+                   dots.v, dots.v, dots.down, dots.v;
+                   A_(n, 1)B, A_(n, 2)B, dots, A_(n, n) B) $
+
+where each $A_(i, j) B$ is an $m times m$ matrix expanded.
+
+$ tr(A tensor B) = sum_(i=1)^n tr(A_(i, i) B) $
+$ tr(A tensor B) = sum_(i=1)^n A_(i, i) tr(B) $
+$ tr(A tensor B) = tr(B) times sum_(i=1)^n A_(i, i) $
+$ tr(A tensor B) = tr(A) times tr(B) $
