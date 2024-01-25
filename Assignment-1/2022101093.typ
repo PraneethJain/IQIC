@@ -129,3 +129,40 @@ $ P = | sum_(i=1)^n alpha_i delta_(k i)|^2 $
 $ P = |alpha_k|^2 $
 
 $therefore$ $ket(psi)$ collapses to $ket(u_k)$ after measurement in the basis ${ket(u_i)}_(i=1)^n$ with probability $|alpha_k|^2$
+
+= Question 6
+== (a)
+$ ket(psi) = 1/sqrt(2) (ket(0) + i ket(1)) $
+$ rho = ket(psi) bra(psi) $
+$ rho = 1/2 mat(1; i)mat(1, -i) $
+$ rho = 1/2 mat(1, -i; i, 1) $
+
+Now, we find the probability of the state collapsing to $ket(1)$ in both formalisms
+=== State Vector Formalism
+$ Pr["state collapsing to" ket(1)] = |braket(1, psi)|^2 $
+$ P = |1/sqrt(2) mat(0, 1) mat(1; i)|^2 $
+$ P = 1/2|i|^2 $
+$ P = 1/2 $
+=== Density Matrix Formalism
+$ Pr["state collapsing to" ket(1)bra(1)] = tr(ket(1) bra(1) rho) $
+$ P = tr(1/2 mat(0; 1) mat(0, 1) mat(1, -i; i, 1)) $
+$ P = 1/2 tr(mat(0, 0; 0, 1) mat(1, -i; i, 1)) $
+$ P = 1/2 tr(mat(0, 0; i, 1)) $
+$ P = 1/2 $
+
+In both the formalisms, we get the required probability to be $1/2$
+
+== (b)
+=== State Vector Formalism
+$ Pr["state collapsing to" ket(+i)] = |braket(+i, psi)|^2 $
+$ P = |1/2 mat(1, -i) mat(1; i)|^2 $
+$ P = |1/2 * 2|^2 $
+$ P = 1 $
+=== Density Matrix Formalism
+$ Pr["state collapsing to" ket(+i)bra(+i)] = tr(ket(+i) bra(+1) rho) $
+$ P = tr(1/4 mat(1; i) mat(1, -i) mat(1, -i; i, 1)) $
+$ P = 1/4 tr(mat(1, -i; i, 1) mat(1, -i; i, 1)) $
+$ P = 1/4 tr(mat(2, -2i; 2i, 2)) $
+$ P = 1 $
+
+$therefore$ the probability of getting $ket(+psi)$ when measuring in the basis ${ket(+psi), ket(-psi)}$ is 1
