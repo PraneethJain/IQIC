@@ -6,6 +6,7 @@
 #let bra(x) = $lr(angle.l #x |)$
 #let braket(x, y) = $lr(angle.l #x|#y angle.r)$
 #let tensor = $times.circle$
+#let expected(x) = $angle.l #x angle.r$
 
 = Question 1
 *To Prove*: Any $n+1$ vectors belonging to an $n$ dimensional vector space must be linearly dependent
@@ -184,3 +185,45 @@ $ P = 1/4 tr(mat(2, -2i; 2i, 2)) $
 $ P = 1 $
 
 $therefore$ the probability of getting $ket(+psi)$ when measuring in the basis ${ket(+psi), ket(-psi)}$ is 1
+
+= Question 7
+
+$ ket(Psi-) = 1/sqrt(2) (ket(0) tensor ket(1) - ket(1) tensor ket(0)) = 1/sqrt(2) mat(0; 1; -1; 0) $
+$ BB = {ket(0) tensor ket(0), ket(0) tensor ket(1), ket(1) tensor ket(0), ket(1) tensor ket(1)} $
+
+== (a)
+For a pure state to be separable, it must be a product state.
+
+Let $ket(Psi-) = mat(a; b) tensor mat(c; d)$
+$ 1/sqrt(2) mat(0; 1; -1; 0) = mat(a c; a d; b c; b d) $
+$ a c = 0 => a = 0 or c = 0 $
+$ b d = 0 => b = 0 or d = 0 $
+If any one of these are zero, then $a d != 1 and b c != -1$. Thus, no such states exist whose tensor product is $ket(Psi-)$
+
+Thus, $ket(Psi-)$ is entangled.
+
+== (b)
+$ Pr["state collapsing to" ket(ket(1) tensor ket(0))] = |braket(ket(1) tensor ket(0), Psi-)|^2 $
+$ P = |1/sqrt(2) mat(0, 0, 1, 0) mat(0; 1; -1; 0)|^2 $
+$ P = 1/2 |-1|^2 $
+$ P = 1/2 $
+
+== (c)
+$ Pr["state collapsing to" ket(ket(0) tensor ket(0))] = |braket(ket(0) tensor ket(0), Psi-)|^2 $
+$ P = |1/sqrt(2) mat(1, 0, 0, 0) mat(0; 1; -1; 0)|^2 $
+$ P = 1/2 |0|^2 $
+$ P = 0 $
+
+== (d)
+$Z$ is the Pauli Z matrix
+$ Z = mat(1, 0; 0, -1) $
+$ O = Z tensor Z $
+$ O = mat(1, 0; 0, -1) tensor mat(1, 0; 0, -1) $
+$ O = mat(1, 0, 0, 0; 0, -1, 0, 0; 0, 0, -1, 0; 0, 0, 0, 1) $
+$ expected(O) = bra(Psi-) O ket(Psi-) $
+$ expected(O) = 1/2 mat(0, 1, -1, 0) mat(1, 0, 0, 0; 0, -1, 0, 0; 0, 0, -1, 0; 0, 0, 0, 1) mat(0; 1; -1; 0) $
+$ expected(O) = 1/2 mat(0, 1, -1, 0) mat(0; -1; 1; 0) $
+$ expected(O) = 1/2 (-2) $
+$ expected(O) = -1 $
+
+The expected value of operator $O = Z tensor Z$ for the state $ket(Psi-)$ is $-1$
