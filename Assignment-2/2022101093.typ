@@ -41,3 +41,62 @@ $ bra(Gamma)_(R S) I_R tensor A_S ket(Gamma)_(R S) = sum_(i=0)^(d-1) bra(i)_S A_
 $ bra(Gamma)_(R S) I_R tensor A_S ket(Gamma)_(R S) = "Tr"{A} $
 
 Hence, proven.
+
+= Exercise 4.1.16
+*Given*:
+- Commutating projectors $Pi_1$ and $Pi_2$
+- $0 <= Pi_1, Pi_2 <= I$
+
+*To Prove*:
+
+For arbitrary density operator $rho$
+$ "Tr"{(I - Pi_1 Pi_2)rho} <= "Tr"{(I - Pi_1)rho} + "Tr"{(I - Pi_2)rho} $
+
+*Proof*:
+
+= TO DO
+
+= Exercise 4.2.2
+*Given*:
+- Ensemble ${p_X (x), rho_x}$ of density operators
+- POVM with elements ${Lambda_x}$
+- Operator $tau$ such that $tau >= p_X (x) rho_x $
+
+*To Prove*:
+$ "Tr"{tau} >= sum_x p_X (x) "Tr"{Lambda_x rho_x} $
+
+*Proof*:
+$ sum_x p_X (x) "Tr"{Lambda_x rho_x} = sum_x "Tr"{Lambda_x p_X (x) rho_x} $
+
+$ sum_x p_X (x) "Tr"{Lambda_x rho_x} <= sum_x "Tr"{Lambda_x tau} $
+
+$ sum_x p_X (x) "Tr"{Lambda_x rho_x} <= "Tr"{sum_x Lambda_x tau} $
+
+$ sum_x p_X (x) "Tr"{Lambda_x rho_x} <= "Tr"{tau sum_x Lambda_x} $
+
+$ sum_x p_X (x) "Tr"{Lambda_x rho_x} <= "Tr"{tau I} $
+$ sum_x p_X (x) "Tr"{Lambda_x rho_x} <= "Tr"{tau} $
+
+Hence, proven
+
+Now for the case of encoding n bits into a d-dimensional subspace.
+$ {2^(-n), rho_i}_(i in {0, 1}^n) $
+Consider
+$ p_X (x) rho_x = 2^(-n) rho_i $
+$ p_X (x) rho_x = 2^(-n ) sum_j lambda_j ket(j) bra(j) $
+$ 2^(-n) I - p_X (x) rho_x = 2^(-n) I - 2^(-n ) sum_j lambda_j ket(j) bra(j) $
+$ 2^(-n) I - p_X (x) rho_x = 2^(-n) sum_j ket(j) bra(j) - 2^(-n ) sum_j lambda_j ket(j) bra(j) $
+$ 2^(-n) I - p_X (x) rho_x = 2^(-n) sum_j (1 - lambda_j) ket(j) bra(j) $
+Since $0 <= lambda_j <= 1 space forall j$, $1-lambda_j >= 0 space forall j$. All the eigenvalues of the matrix in LHS are non-negative.
+$ 2^(-n) I - p_X (x) rho_x >= 0 $
+$ 2^(-n) I >= p_X (x) rho_x $
+
+$therefore$ We consider $tau = 2^(-n) I$
+
+Now, we know that the probability of success is upper bounded by $"Tr"{tau}$
+
+$ "Tr"{tau} = "Tr"{2^(-n) I} $
+$ "Tr"{tau} = 2^(-n) "Tr"{I} $
+Since $I$ is $d$-dimensional,
+$ "Tr"{tau} = d  2^(-n) $
+Thus, the expected success probability is bounded above by $d 2^(-n)$
