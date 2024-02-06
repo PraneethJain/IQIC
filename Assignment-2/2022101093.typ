@@ -77,7 +77,7 @@ $ sum_x p_X (x) "Tr"{Lambda_x rho_x} <= "Tr"{tau sum_x Lambda_x} $
 $ sum_x p_X (x) "Tr"{Lambda_x rho_x} <= "Tr"{tau I} $
 $ sum_x p_X (x) "Tr"{Lambda_x rho_x} <= "Tr"{tau} $
 
-Hence, proven
+Hence, proven.
 
 Now for the case of encoding n bits into a d-dimensional subspace.
 $ {2^(-n), rho_i}_(i in {0, 1}^n) $
@@ -100,3 +100,33 @@ $ "Tr"{tau} = 2^(-n) "Tr"{I} $
 Since $I$ is $d$-dimensional,
 $ "Tr"{tau} = d  2^(-n) $
 Thus, the expected success probability is bounded above by $d 2^(-n)$
+
+= Exercise 4.3.1
+*Given*:
+- $A'$ has a Hilbert space structure isomorphic to that of system $A$
+- $forall x, y space F_(A A') ket(x)_A ket(y)_A' = ket(y)_A ket(x)_A'$
+
+*To Prove*:
+$ P(rho_A) = "Tr"{(rho_A tensor rho_A') F_(A A')} $
+
+*Proof*:
+$ rho_A = sum_i lambda_i ket(i)_A bra(i)_A $
+$ rho_A' = sum_j lambda_j ket(j)_A' bra(j)_A' $
+
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{F_(A A') (rho_A tensor rho_A')} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{F_(A A') ((sum_i lambda_i ket(i)_A bra(i)_A) tensor (sum_j lambda_j ket(j)_A' bra(j)_A'))} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{F_(A A') (sum_(i,j) lambda_i lambda_j ket(i)_A bra(i)_A  tensor ket(j)_A' bra(j)_A')} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{F_(A A') (sum_(i,j) lambda_i lambda_j ket(i)_A bra(i)_A  tensor ket(j)_A' bra(j)_A')} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{F_(A A') (sum_(i,j) lambda_i lambda_j (ket(i)_A ket(j)_A') (bra(i)_A bra(j)_A'))} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{(sum_(i,j) lambda_i lambda_j (F_(A A') ket(i)_A ket(j)_A') (bra(i)_A bra(j)_A'))} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{sum_(i,j) lambda_i lambda_j (ket(j)_A ket(i)_A') (bra(i)_A bra(j)_A')} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = sum_(i,j) lambda_i lambda_j"Tr"{ (ket(j)_A ket(i)_A') (bra(i)_A bra(j)_A')} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = sum_(i,j) lambda_i lambda_j"Tr"{ (bra(i)_A bra(j)_A')(ket(j)_A ket(i)_A') } $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = sum_(i,j) lambda_i lambda_j"Tr"{braket(i, j)_A tensor braket(j, i)_A'} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = sum_(i,j) lambda_i lambda_j braket(i, j)_A braket(j, i)_A' $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = sum_(i,j) lambda_i lambda_j delta_(i, j) $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = sum_(i) lambda_i^2 $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{rho_A^2} $
+$ "Tr"{(rho_A tensor rho_A') F_(A A')} = P(rho_A) $
+
+Hence, proven.
