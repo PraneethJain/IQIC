@@ -130,3 +130,91 @@ $ "Tr"{(rho_A tensor rho_A') F_(A A')} = "Tr"{rho_A^2} $
 $ "Tr"{(rho_A tensor rho_A') F_(A A')} = P(rho_A) $
 
 Hence, proven.
+
+= Exercise 4.3.6
+*Given*:
+$ Pi_"even" = 1/2 (I_A tensor I_B + Z_A tensor Z_B) = ket(00)bra(00)_(A B) + ket(11)bra(11)_(A B) $
+$ Pi_"odd" = 1/2 (I_A tensor I_B - Z_A tensor Z_B) = ket(01)bra(01)_(A B) + ket(10)bra(10)_(A B) $
+$ ket(Phi^+)_(A B) = 1/sqrt(2) (ket(00)_(A B) + ket(11)_(A B)) $
+$ pi_A = 1/2 (ket(0)bra(0)_A + ket(1)bra(1)_A) $
+$ pi_B = 1/2 (ket(0)bra(0)_B + ket(1)bra(1)_B) $
+
+*To Prove*:
+- $ket(Phi^+)_(A B)$ returns an even parity result with probabilty $1$
+- $pi_A tensor pi_B$ returns even or odd parity with equal probability
+
+*Proof*:
+
+First we find the density matrix of the bell state
+$ rho_(A B) = ket(Phi^+)_(A B) bra(Phi^+)_(A B) $
+Now, the probability of the bell state collapsing to $Pi_"even"$ is
+$ P = "Tr"{rho_(A B) Pi_"even" } $
+$ P = "Tr"{ket(Phi^+)_(A B) bra(Phi^+)_(A B) (ket(00)bra(00)_(A B) + ket(11)bra(11)_(A B)) } $
+$ P = "Tr"{ket(Phi^+) bra(Phi^+) ket(00)bra(00) + ket(Phi^+) bra(Phi^+) ket(11)bra(11) } $
+$ P = "Tr"{ ket(Phi^+) bra(Phi^+) ket(00)bra(00) } + "Tr"{ ket(Phi^+) bra(Phi^+) ket(11)bra(11) } $
+$ P = "Tr"{ braket(00, Phi^+) braket(Phi^+, 00) } + "Tr"{ braket(11, Phi^+) braket(Phi^+, 11) } $
+$ P = 1/2 + 1/2 $
+$ P = 1 $
+
+$therefore$ $ket(Phi^+)_(A B)$ returns an even parity result with probabilty $1$
+
+Now, we find the probability of $pi_A tensor pi_B$ returning even parity
+$ P = "Tr"{(pi_A tensor pi_B) Pi_"even"} $
+$ P = 1/4 "Tr"{(ket(0)bra(0)_A + ket(1)bra(1)_A) tensor (ket(0)bra(0)_B + ket(1)bra(1)_B) (ket(00)bra(00)_(A B) + ket(11)bra(11)_(A B))} $
+$ P = 1/4 "Tr"{(ket(0)bra(0)_A tensor ket(0)bra(0)_B + ket(0)bra(0)_A tensor ket(1)bra(1)_B + ket(1)bra(1)_A tensor ket(0)bra(0)_B + ket(1)bra(1)_A tensor ket(1)bra(1)_B) (ket(00)bra(00)_(A B) + ket(11)bra(11)_(A B))} $
+$ P = 1/4 "Tr"{(ket(00)bra(00) + ket(01)bra(01) + ket(10) bra(10) + ket(11)bra(11) ) (ket(00)bra(00) + ket(11)bra(11))} $
+$ P = 1/4 "Tr"{ket(00)bra(00)ket(00)bra(00) + ket(00)bra(00)ket(11)bra(11) + \ ket(01)bra(01)ket(00)bra(00) + ket(01)bra(01)ket(11)bra(11) + \ ket(10)bra(10)ket(00)bra(00) + ket(10)bra(10)ket(11)bra(11) + \ ket(11)bra(11) ket(00)bra(00) + ket(11)bra(11)ket(11)bra(11)} $
+
+$ P = 1/4 ("Tr"{ket(00)bra(00)} + "Tr"{ket(11)bra(11)}) $
+$ P = 1/4 (1 + 1) $
+$ P = 1/2 $
+
+The probability of $pi_A tensor pi_B$ returning an odd parity is $1 - P = 1 - 1/2 = 1/2$ (As the measurements are orthogonal)
+
+$therefore$ $pi_A tensor pi_B$ returns even or odd parity with equal probability
+
+Now, we perform the same calculations for the phase parity measurement
+$ Pi_"even"^X = 1/2(I_A tensor I_B + X_A tensor X_B) $
+$ Pi_"odd"^X = 1/2(I_A tensor I_B - X_A tensor X_B) $
+The probability of the bell state collapsing to $Pi_"even"^X$ is
+$ P = "Tr"{rho_(A B)Pi_"even"^X} $
+$ P = 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) (I_A tensor I_B + X_A tensor X_B)} $
+$ P = 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) I_A tensor I_B} + 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) X_A tensor X_B} $
+$ P = 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) } + 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) X_A tensor X_B} $
+$ P = 1/2 "Tr"{bra(Phi^+)_(A B) ket(Phi^+)_(A B)} + 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) X_A tensor X_B} $
+$ P = 1/2 "Tr"{braket(Phi^+, Phi^+)_(A B)} + 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) X_A tensor X_B} $
+$ P = 1/2 + 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) X_A tensor X_B} $
+$ P = 1/2 + 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) (ket(0)bra(1)_A + ket(1)bra(0)_A) tensor (ket(0)bra(1)_B + ket(1)bra(0)_B)} $
+$ P = 1/2 + 1/2 "Tr"{ket(Phi^+)_(A B)bra(Phi^+)_(A B) (ket(0)bra(1)_A tensor ket(0)bra(1)_B + ket(0)bra(1)_A tensor ket(1)bra(0)_B + ket(1)bra(0)_A tensor ket(0)bra(1)_B + ket(1)bra(0)_A tensor ket(1) bra(0)_B)} $
+$ P = 1/2 + 1/2 "Tr"{ket(Phi^+)bra(Phi^+) (ket(00)bra(11) + ket(01)bra(10) + ket(10)bra(01) + ket(11)bra(00)} $
+$ P = 1/2(1 + "Tr"{ket(Phi^+)bra(Phi^+) ket(00)bra(11)} + "Tr"{ket(Phi^+)bra(Phi^+)ket(01)bra(10)} + "Tr"{ket(Phi^+)bra(Phi^+)ket(10)bra(01)} + "Tr"{ket(Phi^+)bra(Phi^+)ket(11)bra(00)}) $
+$ P = 1/2(1 + "Tr"{braket(11, Phi^+)braket(Phi^+, 00)} + "Tr"{braket(10, Phi^+)braket(Phi^+, 01)} + "Tr"{braket(01, Phi^+)braket(Phi^+, 10)} + "Tr"{braket(00, Phi^+)braket(Phi^+, 11)}) $
+$ P = 1/2(1 + "Tr"{1/sqrt(2) * 1/sqrt(2)} + "Tr"{0 * 0} + "Tr"{0 * 0} + "Tr"{1/sqrt(2) * 1/sqrt(2)}) $
+$ P = 1/2(1 + 1/2 + 1/2) $
+$ P = 1/2(2) $
+$ P = 1 $
+
+$therefore$ $ket(Phi^+)_(A B)$ returns an even phase parity result with probabilty $1$
+
+Now, we find the probability of $pi_A tensor pi_B$ returning even phase parity
+$ P = "Tr"{(pi_A tensor pi_B) Pi_"even"^X} $
+$ P = 1/2 "Tr"{(pi_A tensor pi_B) (I_A tensor I_B + X_A tensor X_B)} $
+$ P = 1/2 "Tr"{(pi_A tensor pi_B) (I_A tensor I_B)} + 1/2 "Tr"{(pi_A tensor pi_B)(X_A tensor X_B)} $
+$ P = 1/2 "Tr"{pi_A tensor pi_B} + 1/2 "Tr"{(pi_A tensor pi_B)(X_A tensor X_B)} $
+$ P = 1/2 "Tr"{pi_A}"Tr"{pi_B}+ 1/2 "Tr"{(pi_A tensor pi_B)(X_A tensor X_B)} $
+$ P = 1/2 + 1/2 "Tr"{(pi_A tensor pi_B)(X_A tensor X_B)} $
+$ P = 1/2(1 + "Tr"{pi_A X_A tensor pi_B X_B}) $
+$ P = 1/2(1 + "Tr"{pi_A X_A} "Tr"{pi_B X_B}) $
+$ P = 1/2(1 + "Tr"{X_A pi_A} "Tr"{X_B pi_B}) $
+$ P = 1/2(1 + "Tr"{X pi}^2) $
+$ P = 1/2(1 + "Tr"{X (ket(0)bra(0) + ket(1)bra(1))}^2) $
+$ P = 1/2(1 + "Tr"{ket(1)bra(0) + ket(0)bra(1)}^2) $
+$ P = 1/2(1 + "Tr"{mat(0, 1; 1, 0)}^2) $
+$ P = 1/2(1 + 0) $
+$ P = 1/2 $
+
+The probability of $pi_A tensor pi_B$ returning an odd phase parity is $1 - P = 1 - 1/2 = 1/2$ (As the measurements are orthogonal)
+
+$therefore$ $pi_A tensor pi_B$ returns even or odd phase parity with equal probability
+
+The same is true for the phase parity measurement. Hence, proven.
