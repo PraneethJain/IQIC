@@ -243,46 +243,11 @@ Hence, proven.
 = Exercise 4.4.1
 *Given*:
 - Linear Map $cal(N)$
-- Choi operator $"id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)) = sum_(i,j=0)^(d_A-1) ket(i)bra(j)_R tensor cal(N)_(A->B)(ket(i)bra(j)_A)$ is PSD
+- Choi operator $"id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)) = sum_(i,j=0)^(d-1) ket(i)bra(j)_R tensor cal(N)_(A->B)(ket(i)bra(j)_A)$ is PSD
 
 *To Prove*:
 - $cal(N)$ is completely positive
 *Proof*:
-
-Consider an arbitrary bipartite vector $ket(phi)_(R B)$
-$ phi_(R B) = sum_(i=0)^(d_A-1) sum_(j=0)^(d_B-1) alpha_(i,j) ket(i)_R tensor ket(j)_B $
-and let $V_(A->B)$ be a linear operator such that
-$ V_(A->B) = sum_(i=0)^(d_A-1) sum_(j=0)^(d_B-1) alpha_(i, j) ket(j)_B bra(i)_A $
-Note that
-$ (I_R tensor V_(A->B))ket(Gamma)_(R A) = ket(phi)_(R B) $
-Thus, for every bipartite vector $ket(phi_l)_(R B)$, we can find a corresponding $V_l$ such that
-$ ket(phi_l)_(R B) = I_R tensor(V_l)_(A->B) ket(Gamma)_(R A) $
-
-Now, for the choi operator, we have
-$ "id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)) = sum_(p,q=0)^(d_A-1) ket(p)bra(q)_R tensor cal(N)_(A->B)(ket(p)bra(q)_A) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A))) = (bra(i)_R tensor I_B)sum_(p,q=0)^(d_A-1) ket(p)bra(q)_R tensor cal(N)_(A->B)(ket(p)bra(q)_A) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A))) = sum_(p,q=0)^(d_A-1) (bra(i)_R tensor I_B)(ket(p)bra(q)_R tensor cal(N)_(A->B)(ket(p)bra(q)_A)) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A))) = sum_(p,q=0)^(d_A-1) bra(i)_R ket(p)_R bra(q)_R tensor I_B cal(N)_(A->B)(ket(p)bra(q)_A) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A))) = sum_(p,q=0)^(d_A-1) braket(i, p)_R bra(q)_R tensor cal(N)_(A->B)(ket(p)bra(q)_A) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A))) = sum_(p,q=0)^(d_A-1) delta_(i, p) bra(q)_R tensor cal(N)_(A->B)(ket(p)bra(q)_A) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A))) = sum_(q=0)^(d_A-1) bra(q)_R tensor cal(N)_(A->B)(ket(i)bra(q)_A) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)))(ket(j)_R tensor I_B) = sum_(q=0)^(d_A-1) bra(q)_R tensor cal(N)_(A->B)(ket(i)bra(q)_A) (ket(j)_R tensor I_B) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)))(ket(j)_R tensor I_B) = sum_(q=0)^(d_A-1) braket(q, j)_R tensor I_B cal(N)_(A->B)(ket(i)bra(q)_A) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)))(ket(j)_R tensor I_B) = sum_(q=0)^(d_A-1) delta_(q, j) tensor cal(N)_(A->B)(ket(i)bra(q)_A) $
-$ (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)))(ket(j)_R tensor I_B) = cal(N)_(A->B)(ket(i)bra(j)_A) $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)))(ket(j)_R tensor I_B) $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = (bra(i)_R tensor I_B)("id"_R tensor cal(N)_(A->B)(ket(Gamma)bra(Gamma)_(R A)))(ket(j)_R tensor I_B) $
-Since the Choi operator is PSD, we diagonalize it
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = (bra(i)_R tensor I_B)(sum_(l=0)^(d-1) ket(phi_l) bra(phi_l)_(R B))(ket(j)_R tensor I_B) $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = sum_(l=0)^(d-1)  (bra(i)_R tensor I_B)( ket(phi_l) bra(phi_l)_(R B))(ket(j)_R tensor I_B) $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = sum_(l=0)^(d-1)  ((bra(i)_R tensor I_B) ket(phi_l)_(R B)) (bra(phi_l)_(R B)(ket(j)_R tensor I_B)) $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = sum_(l=0)^(d-1)  (bra(i)_R tensor I_B) (I_R tensor V_l ket(Gamma)_(R A)) (I_R tensor bra(Gamma)_(R A) V_l^dagger)(ket(j)_R tensor I_B) $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = sum_(l=0)^(d-1)  (bra(i)_R I_R tensor I_B V_l ket(Gamma)_(R A)) (I_R ket(j)_R tensor bra(Gamma)_(R A) V_l^dagger I_B) $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = sum_(l=0)^(d-1)  (bra(i)_R  tensor V_l ket(Gamma)_(R A)) (ket(j)_R tensor bra(Gamma)_(R A) V_l^dagger) $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = sum_(l=0)^(d-1) braket(i, j)_R  tensor V_l ket(Gamma)_(R A) bra(Gamma)_(R A) V_l^dagger $
-$ cal(N)_(A->B)(ket(i)bra(j)_A) = sum_(l=0)^(d-1) braket(i, j)_R  tensor V_l ket(Gamma)_(R A) bra(Gamma)_(R A) V_l^dagger $
-
-
 
 To prove that $cal(N)$ is completely positive, we need to show that $id_R tensor cal(N)_(A->B)(X_(R A))$ is PSD for all $X_(R A)$ that are PSD
 
@@ -290,10 +255,21 @@ $ "id"_R tensor cal(N)_(A->B)(X_(R A)) = "id"_R tensor cal(N)_(A->B)(sum ket(phi
 $ "id"_R tensor cal(N)_(A->B)(X_(R A)) = sum_i "id"_R tensor cal(N)_(A->B)( ket(phi_i)bra(phi_i)_(R A)) $
 Consider $M_i = "id"_R tensor cal(N)_(A->B)(ket(phi_i)bra(phi_i)_(R A))$
 
-We have $ket(phi_i) = sum_(j,k=0)^(d_A-1) alpha_(j k) ket(j)_R ket(k)_A$
-$ M_i = "id"_R tensor cal(N)_(A->B)(sum_(j_1,k_1=0)^(d_A-1) alpha_(j_1 k_1) ket(j_1)_R ket(k_1)_A sum_(j_2,k_2=0)^(d_A-1) alpha_(j_2 k_2)^* bra(j_2)_R bra(k_2)_A) $
-$ M_i = "id"_R tensor cal(N)_(A->B)(sum_(j_1,k_1,j_2,k_2=0)^(d_A-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1)_R ket(k_1)_A bra(j_2)_R bra(k_2)_A) $
-$ M_i = "id"_R tensor cal(N)_(A->B)(sum_(j_1,k_1,j_2,k_2=0)^(d_A-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1)bra(j_2)_R tensor ket(k_1)bra(k_2)_A) $
-$ M_i = sum_(j_1,k_1,j_2,k_2=0)^(d_A-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ("id"_R tensor cal(N)_(A->B))(ket(j_1)bra(j_2)_R tensor ket(k_1)bra(k_2)_A) $
-$ M_i = sum_(j_1,k_1,j_2,k_2=0)^(d_A-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ("id"_R ket(j_1) bra(j_2)_R) tensor (cal(N)_(A->B)ket(k_1)bra(k_2)_A) $
-$ M_i = sum_(j_1,k_1,j_2,k_2=0)^(d_A-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1) bra(j_2)_R tensor cal(N)_(A->B)ket(k_1)bra(k_2)_A $
+We have $ket(phi_i) = sum_(j,k=0)^(d-1) alpha_(j k) ket(j)_R ket(k)_A$
+$ M_i = "id"_R tensor cal(N)_(A->B)(sum_(j_1,k_1=0)^(d-1) alpha_(j_1 k_1) ket(j_1)_R ket(k_1)_A sum_(j_2,k_2=0)^(d-1) alpha_(j_2 k_2)^* bra(j_2)_R bra(k_2)_A) $
+$ M_i = "id"_R tensor cal(N)_(A->B)(sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1)_R ket(k_1)_A bra(j_2)_R bra(k_2)_A) $
+$ M_i = "id"_R tensor cal(N)_(A->B)(sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1)bra(j_2)_R tensor ket(k_1)bra(k_2)_A) $
+$ M_i = sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ("id"_R tensor cal(N)_(A->B))(ket(j_1)bra(j_2)_R tensor ket(k_1)bra(k_2)_A) $
+$ M_i = sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ("id"_R ket(j_1) bra(j_2)_R) tensor (cal(N)_(A->B)ket(k_1)bra(k_2)_A) $
+$ M_i = sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1) bra(j_2)_R tensor cal(N)_(A->B)ket(k_1)bra(k_2)_A $
+Now, using 4.198-4.212 of the book, we have
+$ M_i = sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1) bra(j_2)_R tensor sum_(l=0)^(d-1)V_l ket(k_1) bra(k_2) V_l^dagger $
+$ M_i = sum_(l=0)^(d-1) sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1) bra(j_2)_R tensor V_l ket(k_1) bra(k_2) V_l^dagger $
+$ M_i = sum_(l=0)^(d-1) sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* I_R ket(j_1) bra(j_2)_R I_R tensor V_l ket(k_1) bra(k_2) V_l^dagger $
+$ M_i = sum_(l=0)^(d-1)I_R tensor V_l (sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1) bra(j_2)_R tensor ket(k_1) bra(k_2)) I_R tensor V_l^dagger $
+$ M_i = sum_(l=0)^(d-1)I_R tensor V_l (ket(phi_l) bra(phi_l)_(R A)) I_R tensor V_l^dagger $
+Using the above result and 4.193 from the book, for arbitrary $X_A$ we have
+$ cal(N)_(A->B)(X_A) = sum_(l=0)^(d-1)V_l X_A V_l^dagger $
+From the Choi-Kraus theorem, the map $cal(N)$ is completely positive.
+
+Hence, proven.
