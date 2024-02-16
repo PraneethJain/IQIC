@@ -268,8 +268,10 @@ $ M_i = sum_(l=0)^(d-1) sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 
 $ M_i = sum_(l=0)^(d-1) sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* I_R ket(j_1) bra(j_2)_R I_R tensor V_l ket(k_1) bra(k_2) V_l^dagger $
 $ M_i = sum_(l=0)^(d-1)I_R tensor V_l (sum_(j_1,k_1,j_2,k_2=0)^(d-1)alpha_(j_1 k_1) alpha_(j_2 k_2)^* ket(j_1) bra(j_2)_R tensor ket(k_1) bra(k_2)) I_R tensor V_l^dagger $
 $ M_i = sum_(l=0)^(d-1)I_R tensor V_l (ket(phi_l) bra(phi_l)_(R A)) I_R tensor V_l^dagger $
-Using the above result and 4.193 from the book, for arbitrary $X_A$ we have
-$ cal(N)_(A->B)(X_A) = sum_(l=0)^(d-1)V_l X_A V_l^dagger $
-From the Choi-Kraus theorem, the map $cal(N)$ is completely positive.
 
-Hence, proven.
+Now, from the Choi-Kraus theorem, $M_i$ is a completely positive.
+
+$ "id"_R tensor cal(N)_(A->B)(X_(R A)) = sum_i M_i $
+Since sum of completely positive maps is also completely positive, $cal(N)$ is completely positive.
+
+Hence, proven
