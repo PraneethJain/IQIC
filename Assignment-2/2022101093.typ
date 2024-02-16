@@ -54,7 +54,18 @@ $ "Tr"{(I - Pi_1 Pi_2)rho} <= "Tr"{(I - Pi_1)rho} + "Tr"{(I - Pi_2)rho} $
 
 *Proof*:
 
-= TO DO
+$ 0 <= Pi_1 Pi_2 <= I^2 $
+$ 0 <= Pi_1 Pi_2 <= I $
+and
+$ 0 <= Pi_1 + Pi_2 <= 2 I $
+On subtracting, we get
+$ Pi_1 + Pi_2 - Pi_1 Pi_2 <= I $
+$ I - Pi_1 Pi_2 <= I - Pi_1 + I - Pi_2 $
+$ (I - Pi_1 Pi_2)rho <= (I - Pi_1 + I - Pi_2)rho $
+$ (I - Pi_1 Pi_2)rho <= (I - Pi_1)rho + (I - Pi_2)rho $
+$ "Tr"{(I - Pi_1 Pi_2)rho} <= "Tr"{(I - Pi_1)rho + (I - Pi_2)rho} $
+$ "Tr"{(I - Pi_1 Pi_2)rho} <= "Tr"{(I - Pi_1)rho} + "Tr"{(I - Pi_2)rho} $
+Hence, proven.
 
 = Exercise 4.2.2
 *Given*:
