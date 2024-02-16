@@ -218,3 +218,24 @@ The probability of $pi_A tensor pi_B$ returning an odd phase parity is $1 - P = 
 $therefore$ $pi_A tensor pi_B$ returns even or odd phase parity with equal probability
 
 The same is true for the phase parity measurement. Hence, proven.
+
+= Exercise 4.3.18
+*Given*:
+$ rho_A = sum_(x in X) p_X (x) rho_A^x $
+$ rho_(X A) = sum_(x in X) p_X (x) ket(x)bra(x) tensor rho_A^x $
+$ "Measurement operators" {Lambda_A^j} $
+
+*To Prove*:
+$ "Tr"{rho_A Lambda_A^j} = "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} $
+*Proof*:
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = "Tr"{(sum_(x in X) p_X (x) ket(x)bra(x) tensor rho_A^x)(I_X tensor Lambda_A^j)} $
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = "Tr"{sum_(x in X) (p_X (x)(ket(x)bra(x) tensor rho_A^x) (I_X tensor Lambda_A^j))} $
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = "Tr"{sum_(x in X) (p_X (x)(ket(x)bra(x) I_X tensor rho_A^x Lambda_A^j)) } $
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = "Tr"{sum_(x in X) (p_X (x)(ket(x)bra(x)_X tensor rho_A^x Lambda_A^j)) } $
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = sum_(x in X) p_X (x)"Tr"{ket(x)bra(x)_X tensor rho_A^x Lambda_A^j} $
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = sum_(x in X)p_X (x)"Tr"{ket(x)bra(x)_X} "Tr"{rho_A^x Lambda_A^j} $
+Since trace of a density operator is $1$,
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = sum_(x in X) p_X (x)"Tr"{rho_A^x Lambda_A^j} $
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = "Tr"{sum_(x in X) p_X (x)rho_A^x Lambda_A^j} $
+$ "Tr"{rho_(X A)(I_X tensor Lambda_A^j)} = "Tr"{rho_A Lambda_A^j} $
+Hence, proven.
