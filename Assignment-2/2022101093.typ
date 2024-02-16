@@ -282,3 +282,50 @@ $ "id"_R tensor cal(N)_(A->B)(X_(R A)) = sum_i M_i $
 Since sum of completely positive maps is also completely positive, $cal(N)$ is completely positive.
 
 Hence, proven
+
+= Exercise 4.6.3
+*Given*:
+- Hilbert spaces $cal(H)_A$, $cal(H)_B$, $cal(H)_X$
+- A Classical-Quantum channel $cal(N)^1_(A->B)$ that transforms $rho_A -> sum_k bra(k)_A rho_A ket(k)_A sigma_B^k$
+- A Quantum-Classical channel $cal(N)^2_(A->B)$ that transforms $rho_A -> sum_x "Tr"{Lambda_A^x rho_A}ket(x)bra(x)_X$
+
+*To Prove*:
+- $N^1_(A->B)$ is Entanglement-Breaking
+- $N^2_(A->B)$ is Entanglement-Breaking
+
+*Proof*:
+
+$ Phi_(R A) = 1/d sum_(i, j =0)^(d_A-1) ket(i)bra(j)_R tensor ket(i)bra(j)_A $
+
+For $N^1_(A->B)$
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = I_R tensor N^1_(A->B) 1/d sum_(i, j =0)^(d_A-1) ket(i)bra(j)_R tensor ket(i)bra(j)_A $
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (I_R tensor N^1_(A->B))(ket(i)bra(j)_R tensor ket(i)bra(j)_A) $
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (I_R ket(i)bra(j)_R tensor N^1_(A->B) ket(i)bra(j)_A) $
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor N^1_(A->B) ket(i)bra(j)_A) $
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor sum_k bra(k)_A ket(i)_A bra(j)_A ket(k)_A sigma_B^k) $
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor sum_k braket(k, i)_A braket(j, k)_A sigma_B^k) $
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor sum_k delta_(i, k) delta_(k, j) sigma_B^k) $
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = 1/d  sum_(i, j, k = 0)^(d_A-1) delta_(i, k) delta_(k, j) (ket(i)bra(j)_R tensor sigma_B^k) $
+$ I_R tensor N^1_(A->B) (Phi_(R A)) = 1/d  sum_(k = 0)^(d_A-1) ket(i)bra(j)_R tensor sigma_B^k $
+Since this is a convex combination of product states,
+$I_R tensor N^1_(A->B)(Phi_(R A))$ is separable.
+
+Therefore, from Exercise 4.6.2, $N^1_(A->B)$ is Entanglement-Breaking.
+
+For $N^2_(A->B)$
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = I_R tensor N^2_(A->B) 1/d sum_(i, j =0)^(d_A-1) ket(i)bra(j)_R tensor ket(i)bra(j)_A $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (I_R tensor N^2_(A->B))(ket(i)bra(j)_R tensor ket(i)bra(j)_A) $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (I_R ket(i)bra(j)_R tensor N^2_(A->B) ket(i)bra(j)_A) $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor N^2_(A->B) ket(i)bra(j)_A) $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor sum_x "Tr"{Lambda_A^x ket(i)_A bra(j)_A}ket(x)bra(x)_X) $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor sum_x "Tr"{Lambda_A^x ket(i)_A bra(j)_A}ket(x)bra(x)_X) $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor sum_x "Tr"{ket(x)_A bra(x)_A ket(i)_A bra(j)_A}ket(x)bra(x)_X) $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(i, j =0)^(d_A-1) (ket(i)bra(j)_R tensor sum_x "Tr"{braket(j, x)_A braket(x, i)_A}ket(x)bra(x)_X) $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(i, j, x =0)^(d_A-1) delta_(i, x) delta_(j, x) (ket(i)bra(j)_R tensor  ket(x)bra(x)_X) $
+$ I_R tensor N^2_(A->B) (Phi_(R A)) = 1/d  sum_(x =0)^(d_A-1) ket(x)bra(x)_R tensor  ket(x)bra(x)_X $
+Since this is a convex combination of product states,
+$I_R tensor N^2_(A->B)(Phi_(R A))$ is separable.
+
+Therefore, from Exercise 4.6.2, $N^2_(A->B)$ is Entanglement-Breaking.
+
+Hence, proven.
