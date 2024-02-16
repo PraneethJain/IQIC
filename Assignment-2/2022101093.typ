@@ -54,16 +54,12 @@ $ "Tr"{(I - Pi_1 Pi_2)rho} <= "Tr"{(I - Pi_1)rho} + "Tr"{(I - Pi_2)rho} $
 
 *Proof*:
 
-$ 0 <= Pi_1 Pi_2 <= I^2 $
-$ 0 <= Pi_1 Pi_2 <= I $
-and
-$ 0 <= Pi_1 + Pi_2 <= 2 I $
-On subtracting, we get
-$ Pi_1 + Pi_2 - Pi_1 Pi_2 <= I $
-$ I - Pi_1 Pi_2 <= I - Pi_1 + I - Pi_2 $
-$ (I - Pi_1 Pi_2)rho <= (I - Pi_1 + I - Pi_2)rho $
-$ (I - Pi_1 Pi_2)rho <= (I - Pi_1)rho + (I - Pi_2)rho $
-$ "Tr"{(I - Pi_1 Pi_2)rho} <= "Tr"{(I - Pi_1)rho + (I - Pi_2)rho} $
+$ I - Pi_1 >= 0 "and" I - Pi_2 >= 0 $
+Since trace of product of semi positive definite matrices is non negative (as discussed in class)
+$ "Tr"{(I-Pi_1)(I-Pi_2)rho} >= 0 $
+$ "Tr"{(I - Pi_1 - Pi_2 + Pi_1 Pi_2)rho} >= 0 $
+$ "Tr"{(I - Pi_1 + I - Pi_2 + Pi_1 Pi_2 - I)rho} >= 0 $
+$ "Tr"{(I - Pi_1)rho} + "Tr"{(I - Pi_2)rho} - "Tr"{(I - Pi_1 Pi_2)rho} >= 0 $
 $ "Tr"{(I - Pi_1 Pi_2)rho} <= "Tr"{(I - Pi_1)rho} + "Tr"{(I - Pi_2)rho} $
 Hence, proven.
 
