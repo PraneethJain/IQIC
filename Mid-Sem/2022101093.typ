@@ -41,7 +41,7 @@ $ 2^n delta(x, y) $
 
 Now, from both the cases we get
 $ sum_(z in {0, 1}^n) (-1)^((x xor y) dot z) = 2^n delta(x, y) $
-Hence, proven.
+Hence, proven
 
 == (b)
 *Given*:
@@ -66,4 +66,55 @@ $ 1/2^n sum_(w in {0, 1}^n)(-1)^(w dot f(x)) ket(x)_Q tensor ket(w)_R 2^n delta(
 $ sum_(w in {0, 1}^n)(-1)^(w dot f(x)) ket(x)_Q tensor ket(w)_R delta(w, y)  $
 $ (-1)^(y dot f(x)) ket(x)_Q tensor ket(y)_R  $
 $ V_f (ket(x)_Q tensor ket(y)_R) $
+Hence, proven
+
+== Question 7
+*Given*:
+$ f: {0, 1}^n |-> {0, 1}^n $
+$ forall x, y in {0, 1}^n space f(x) = f(y) <-> x xor y in {0^n, d} $
+$ U_f (ket(x)_Q tensor ket(y)_R) := ket(x)_Q tensor ket(y xor f(x))_R $
+
+== (a)
+*To Prove*:
+$f$ is one-to-one when $d=0^n$ and two-to-one otherwise
+
+*Proof*:
+
+Case 1: $d = 0^n$
+$ forall x, y in {0, 1}^n space f(x) = f(y) <-> x xor y in {0^n, 0^n} $
+$ forall x, y in {0, 1}^n space f(x) = f(y) <-> x xor y in {0^n} $
+$ forall x, y in {0, 1}^n space f(x) = f(y) <-> x xor y = 0^n $
+$ forall x, y in {0, 1}^n space f(x) = f(y) <-> x = y $
+
+Thus, $f$ is one-one in this case
+
+\ \
+
+Case 2: $d != 0^n$
+
+To prove that $f$ is two-one, we need to show that $forall z in "range"(f)$, we have exactly two elements $x, y$ such that $f(x) = f(y) = z$
+
+$ forall x, y in {0, 1}^n space f(x) = f(y) <-> x xor y in {0^n, d} $
+
+(i) $x xor y = 0^n$
+
+$x = y$, thus $f(x) = f(y)$
+
+(ii) $x xor y = d "with" d != 0^n$
+
+$ y = d xor x $
+Since $d != 0^n$, we get $y != x$, and $f(x) = f(y)$
+
+Clearly, two distinct values $x$ and $y$ give the same output. Now, we need to prove that no more than two distinct inputs give the same output. 
+
+Consider distinct $a, b, c in {0, 1}^n$ such that $f(a) = f(b) = f(c)$
+
+Since $a, b, c$ are distinct, their xor cannot be $0^d$, thus we have
+$ a xor b = b xor c = d $
+$ a = d xor b, c = d xor b $
+$ a = c $
+This is a contradiction. Thus, there only exist exactly two input values for each output value.
+
+Thus, $f$ is a two-one function in this case
+
 Hence, proven
