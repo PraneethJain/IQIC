@@ -9,10 +9,6 @@
 #let expected(x) = $angle.l #x angle.r$
 
 = Question 5
-*Given*:
-$ f : {0, 1}^n |-> {0, 1}^n $
-$ U_f (ket(x)_Q tensor ket(y)_R) := ket(x)_Q tensor ket(y xor f(x))_R $
-$ V_f (ket(x)_Q tensor ket(y)_R) := (-1)^(y dot f(x)) ket(x)_Q tensor ket(y)_R $
 
 == (a)
 *To Prove*:
@@ -46,3 +42,28 @@ $ 2^n delta(x, y) $
 Now, from both the cases we get
 $ sum_(z in {0, 1}^n) (-1)^((x xor y) dot z) = 2^n delta(x, y) $
 Hence, proven.
+
+== (b)
+*Given*:
+$ f : {0, 1}^n |-> {0, 1}^n $
+$ U_f (ket(x)_Q tensor ket(y)_R) := ket(x)_Q tensor ket(y xor f(x))_R $
+$ V_f (ket(x)_Q tensor ket(y)_R) := (-1)^(y dot f(x)) ket(x)_Q tensor ket(y)_R $
+
+*To Prove*:
+$ V_f (ket(x)_Q tensor ket(y)_R) = (II_Q tensor H^(tensor n)) U_f (II_Q tensor H^(tensor n))(ket(x)_Q tensor ket(y)_R) $
+*Proof*:
+We will be using the identity $H^(tensor n)ket(x) = 1/sqrt(2^n) sum_(z in {0, 1}^n) (-1)^(x dot z)ket(z)$
+$ (II_Q tensor H^(tensor n)) U_f (II_Q tensor H^(tensor n))(ket(x)_Q tensor ket(y)_R) $
+$ (II_Q tensor H^(tensor n)) U_f (II_Q ket(x)_Q tensor H^(tensor n) ket(y)_R) $
+$ (II_Q tensor H^(tensor n)) U_f (ket(x)_Q tensor 1/sqrt(2^n)sum_(z in {0, 1}^n)(-1)^(y dot z)ket(z)_R) $
+$ 1/sqrt(2^n) sum_(z in {0, 1}^n)(-1)^(y dot z) (II_Q tensor H^(tensor n)) U_f (ket(x)_Q tensor ket(z)_R) $
+$ 1/sqrt(2^n) sum_(z in {0, 1}^n)(-1)^(y dot z) (II_Q tensor H^(tensor n)) (ket(x)_Q tensor ket(z xor f(x))_R) $
+$ 1/sqrt(2^n) sum_(z in {0, 1}^n)(-1)^(y dot z) (II_Q ket(x)_Q tensor H^(tensor n) ket(z xor f(x))_R) $
+$ 1/sqrt(2^n) sum_(z in {0, 1}^n)(-1)^(y dot z) ket(x)_Q tensor (1/sqrt(2^n) sum_(w in {0, 1}^n) (-1)^((z xor f(x)) dot w) ket(w)_R) $
+$ 1/2^n sum_(z, w in {0, 1}^n)(-1)^((y dot z)) (-1)^((z xor f(x)) dot w) ket(x)_Q tensor ket(w)_R $
+$ 1/2^n sum_(w in {0, 1}^n)(-1)^(w dot f(x)) ket(x)_Q tensor ket(w)_R sum_(z in {0, 1}^n) (-1)^((y xor w) dot z)  $
+$ 1/2^n sum_(w in {0, 1}^n)(-1)^(w dot f(x)) ket(x)_Q tensor ket(w)_R 2^n delta(w, y)  $
+$ sum_(w in {0, 1}^n)(-1)^(w dot f(x)) ket(x)_Q tensor ket(w)_R delta(w, y)  $
+$ (-1)^(y dot f(x)) ket(x)_Q tensor ket(y)_R  $
+$ V_f (ket(x)_Q tensor ket(y)_R) $
+Hence, proven
