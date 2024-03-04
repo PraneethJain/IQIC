@@ -68,6 +68,25 @@ $ (-1)^(y dot f(x)) ket(x)_Q tensor ket(y)_R  $
 $ V_f (ket(x)_Q tensor ket(y)_R) $
 Hence, proven
 
+== Question 6
+== (a)
+Before the first Hadamard, the state is
+$ ket(0)_A ket(psi)_B ket(phi)_C $
+After the first Hadamard, the state is
+$ H_A ket(0)_A ket(psi)_B ket(phi)_C  $
+$ 1/sqrt(2) (ket(0)_A + ket(1)_A) ket(psi)_B ket(phi)_C  $
+$ 1/sqrt(2) ket(0)_A ket(psi)_B ket(phi)_C + 1/sqrt(2) ket(1)_A ket(psi)_B ket(phi)_C  $
+After the Controlled-SWAP, the state is
+$ 1/sqrt(2) ket(0)_A ket(psi)_B ket(phi)_C + 1/sqrt(2) ket(1)_A ket(phi)_B ket(psi)_C  $
+After the second Hadamard, we get the required state
+$ ket(psi^')_(A B C) = H_A (1/sqrt(2) ket(0)_A ket(psi)_B ket(phi)_C + 1/sqrt(2) ket(1)_A ket(phi)_B ket(psi)_C)  $
+$ ket(psi^')_(A B C) = 1/sqrt(2) H_A ket(0)_A ket(psi)_B ket(phi)_C + 1/sqrt(2) H_A ket(1)_A ket(phi)_B ket(psi)_C  $
+$ ket(psi^')_(A B C) = 1/2 (ket(0)_A + ket(1)_A) ket(psi)_B ket(phi)_C + 1/2 (ket(0)_A - ket(1)_A) ket(phi)_B ket(psi)_C  $
+$ ket(psi^')_(A B C) = 1/2 ket(0)_A (ket(psi)_B ket(phi)_C + ket(phi)_B ket(psi)_C) + 1/2 ket(1)_A (ket(psi)_B ket(phi)_C - ket(phi)_B ket(psi)_C)  $
+This is the required tripartite state
+
+==(b)
+
 == Question 7
 *Given*:
 $ f: {0, 1}^n |-> {0, 1}^n $
@@ -118,3 +137,24 @@ This is a contradiction. Thus, there only exist exactly two input values for eac
 Thus, $f$ is a two-one function in this case
 
 Hence, proven
+
+== (b)
+*To Find*:
+$ket(psi^')_(Q R)$
+
+*Solution*:
+
+Initially, the state is $ ket(0^n)_Q tensor ket(O^n)_R $
+After the first Hadamard, the state is
+$ H^(tensor n)ket(0^n)_Q tensor ket(0^n)_R $ 
+$ 1/sqrt(2^n) sum_(x in {0, 1}^n) ket(x)_Q tensor ket(0^n)_R $
+After the oracle, the state is
+$ U_f 1/sqrt(2^n) sum_(x in {0, 1}^n) ket(x)_Q tensor ket(0^n)_R $
+$ 1/sqrt(2^n) sum_(x in {0, 1}^n) U_f ket(x)_Q tensor ket(0^n)_R $
+$ 1/sqrt(2^n) sum_(x in {0, 1}^n) ket(x)_Q tensor ket(0^n xor f(x))_R $
+$ 1/sqrt(2^n) sum_(x in {0, 1}^n) ket(x)_Q tensor ket(f(x))_R $
+After the second Hadamard, the required state is 
+$ ket(psi^')_(Q R) = H^(tensor n) 1/sqrt(2^n) sum_(x in {0, 1}^n) ket(x)_Q tensor ket(f(x))_R $
+$ ket(psi^')_(Q R) = 1/sqrt(2^n) sum_(x in {0, 1}^n) H^(tensor n) ket(x)_Q tensor ket(f(x))_R $
+$ ket(psi^')_(Q R) = 1/sqrt(2^n) sum_(x in {0, 1}^n) 1/sqrt(2^n)sum_(z in {0, 1}^n)(-1)^(x dot z) ket(z)_Q tensor ket(f(x))_R $
+$ ket(psi^')_(Q R) = 1/2^n sum_(x, z in {0, 1}^n)(-1)^(x dot z) ket(z)_Q tensor ket(f(x))_R $
