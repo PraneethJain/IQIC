@@ -85,7 +85,14 @@ $ ket(psi^')_(A B C) = 1/2 (ket(0)_A + ket(1)_A) ket(psi)_B ket(phi)_C + 1/2 (ke
 $ ket(psi^')_(A B C) = 1/2 ket(0)_A (ket(psi)_B ket(phi)_C + ket(phi)_B ket(psi)_C) + 1/2 ket(1)_A (ket(psi)_B ket(phi)_C - ket(phi)_B ket(psi)_C)  $
 This is the required tripartite state
 
-==(b)
+== (b)
+$ p_0 = 1/2 (bra(psi)_B bra(phi)_C + bra(phi)_B bra(psi)_C) 1/2 (ket(psi)_B ket(phi)_C + ket(phi)_B ket(psi)_C) $
+$ p_0 = 1/4 (bra(psi)_B bra(phi)_C ket(psi)_B ket(phi)_C + bra(psi)_B bra(phi)_C ket(phi)_B ket(psi)_C + bra(phi)_B bra(psi)_C ket(psi)_B ket(phi)_C + bra(phi)_B bra(psi)_C ket(phi)_B ket(psi)_C) $
+$ p_0 = 1/4 (braket(psi, psi)_B tensor braket(phi, phi)_C + braket(psi, phi)_B tensor braket(phi, psi)_C + braket(phi, psi)_B tensor braket(psi, phi)_C + braket(phi, phi)_B tensor braket(psi, psi)_C) $
+$ p_0 = 1/4 (1 + |braket(psi, phi)|^2 + |braket(psi, phi)|^2 + 1) $
+$ p_0 = 1/2 + 1/2|braket(psi, phi)|^2 $
+Since $p_0 + p_1 = 1$,
+$ p_1 = 1/2 - 1/2|braket(psi, phi)|^2 $
 
 == Question 7
 *Given*:
