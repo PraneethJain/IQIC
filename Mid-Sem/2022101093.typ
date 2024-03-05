@@ -94,6 +94,17 @@ $ p_0 = 1/2 + 1/2|braket(psi, phi)|^2 $
 Since $p_0 + p_1 = 1$,
 $ p_1 = 1/2 - 1/2|braket(psi, phi)|^2 $
 
+== (c)
+Since $ket(psi)_A$ and $ket(phi)_B$ are pure states, their fidelity is $|braket(psi,phi)|^2$
+
+The probability of measuring a $0$ is $p_0$, so we get
+$ p_0 = m/N $
+$ 1/2 + 1/2|braket(psi, phi)|^2 = m/N $
+$ 1 + |braket(psi, phi)|^2 = 2m/N $
+$ |braket(psi, phi)|^2 = 2m/N - 1 $
+This is the required fidelity
+
+
 == Question 7
 *Given*:
 $ f: {0, 1}^n |-> {0, 1}^n $
