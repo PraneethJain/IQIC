@@ -186,10 +186,33 @@ $ ket(psi^')_(Q R) = 1/2^n sum_(x, z in {0, 1}^n)(-1)^(x dot z) ket(z)_Q tensor 
 
 The coefficient of $ket(j)$ is
 $ ket(phi) = 1/2^n sum_(x in {0, 1}^n) (-1)^(x dot j) ket(f(x)) $
-Thus, the probability of measuring outcome $ket(j)$ is
-$ braket(phi, phi) $
-$ (1/2^n sum_(x in {0, 1}^n) (-1)^(x dot j) bra(f(x))) (1/2^n sum_(y in {0, 1}^n) (-1)^(y dot j) ket(f(y))) $
-$ 1/2^(2n) sum_(x,y in {0, 1}^n) (-1)^(x dot j + y dot j) braket(f(x), f(y)) $
+
+The probability of measuring $ket(j)$ is thus
+$ p(j) = bar.double 1/2^n sum_(x in {0, 1}^n) (-1)^(x dot j) ket(f(x)) bar.double^2 $
+
+Case 1: $d = 0^n$
+
+The function is one-one, so $"range"(f) = {0, 1}^n$, the summation is over every basis vector, and we get
+$ p(j) = 1/2^n $
+
+Case 2: $d != 0^n$
+
+The function is two-one, thus the range is half of the co-domain (as $f(x) = f(x xor d) = z$)
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) ((-1)^(x dot j) + (-1)^((x xor d) dot j)) ket(z) bar.double^2 $
+where $x$ is any one of the two pre-images of $z$
+
+If $x dot j = 0$, we have 
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) (1 + (-1)^(j dot d)) ket(z) bar.double^2 $
+If $x dot j = 1$, we have
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) (-1 + (-1)^(1 + j dot d)) ket(z) bar.double^2 $
+$ p(j) = bar.double 1/2^n (-1)sum_(z in "range"(f)) (1 + (-1)^(j dot d)) ket(z) bar.double^2 $
+$ p(j) = ((-1) bar.double 1/2^n sum_(z in "range"(f)) (1 + (-1)^(j dot d)) ket(z) bar.double)^2 $
+$ p(j) = (-1)^2 bar.double 1/2^n sum_(z in "range"(f)) (1 + (-1)^(j dot d)) ket(z) bar.double^2 $
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) (1 + (-1)^(j dot d)) ket(z) bar.double^2 $
+
+In all cases, we get
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) (1 + (-1)^(j dot d)) ket(z) bar.double^2 $
+Hence, proven.
 
 == (d)
 *To Prove*: $p(j)$ is nonzero only if $j dot z = 0$
@@ -273,12 +296,12 @@ $ U^'_y tensor V^'_y ket(Psi)_(A B) = sum_k alpha_k ket(u_k)_A tensor ket(v_k)_B
 Clearly, $V^'_y tensor U^'_y$ transforms $ket(Psi^')_(A B)$ into Schmidt form
 
 $ (U_y^' tensor V_y^') ket(Psi)_(A B) = (V_y^' tensor U_y^') ket(Psi^')_(A B) $
-$ (U_y^' tensor V_y^') (II_A tensor Q_y) ket(Psi)_(A B) = (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi^')_(A B) $
-$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^' tensor V_y^')^dagger (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi^')_(A B) $
-$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^'^dagger tensor V_y^'^dagger) (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi^')_(A B) $
-$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^'^dagger V_y^' tensor V_y^'^dagger U_y^') (P_y tensor II_B) ket(Psi^')_(A B) $
+$ (U_y^' tensor V_y^') (II_A tensor Q_y) ket(Psi)_(A B) = (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi)_(A B) $
+$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^' tensor V_y^')^dagger (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi)_(A B) $
+$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^'^dagger tensor V_y^'^dagger) (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi)_(A B) $
+$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^'^dagger V_y^' tensor V_y^'^dagger U_y^') (P_y tensor II_B) ket(Psi)_(A B) $
 Let $U_y^A = U_y^'^dagger V_y^'$ and $V_y^B = V_y^'^dagger U_y^'$
-$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^A tensor V_y^B) (P_y tensor II_B) ket(Psi^')_(A B) $
+$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^A tensor V_y^B) (P_y tensor II_B) ket(Psi)_(A B) $
 Thus, we have
-$ ket(Psi^')_(A B) = (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^A tensor V_y^B) (P_y tensor II_B) ket(Psi^')_(A B) $
+$ ket(Psi^')_(A B) = (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^A tensor V_y^B) (P_y tensor II_B) ket(Psi)_(A B) $
 Hence, proven.
