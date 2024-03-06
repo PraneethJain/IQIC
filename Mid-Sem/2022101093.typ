@@ -267,5 +267,18 @@ $ ket(Psi)_(A B) = sum_k alpha_k ket(u_k)_A tensor (sum_(i, j) q_(i j)ket(v_i)br
 $ ket(Psi)_(A B) = sum_(i, j, k) alpha_k q_(i, j) ket(u_k) tensor ket(v_i)braket(v_j, v_k) $
 $ ket(Psi)_(A B) = sum_(i, j, k) alpha_k q_(i, j) delta_(j, k) ket(u_k) tensor ket(v_i) $
 $ ket(Psi)_(A B) = sum_(i, k) alpha_k q_(i, k) ket(u_k) tensor ket(v_i) $
-Thus
-$ ket(Psi^')_(A B) = (II_A tensor Q_y^A) ket(Psi)_(A B) $
+
+Consider unitaries $U^'_y tensor V^'_y$ that transform $ket(Psi)_(A B)$ into Schmidt form
+$ U^'_y tensor V^'_y ket(Psi)_(A B) = sum_k alpha_k ket(u_k)_A tensor ket(v_k)_B $
+Clearly, $V^'_y tensor U^'_y$ transforms $ket(Psi^')_(A B)$ into Schmidt form
+
+$ (U_y^' tensor V_y^') ket(Psi)_(A B) = (V_y^' tensor U_y^') ket(Psi^')_(A B) $
+$ (U_y^' tensor V_y^') (II_A tensor Q_y) ket(Psi)_(A B) = (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi^')_(A B) $
+$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^' tensor V_y^')^dagger (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi^')_(A B) $
+$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^'^dagger tensor V_y^'^dagger) (V_y^' tensor U_y^') (P_y tensor II_B) ket(Psi^')_(A B) $
+$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^'^dagger V_y^' tensor V_y^'^dagger U_y^') (P_y tensor II_B) ket(Psi^')_(A B) $
+Let $U_y^A = U_y^'^dagger V_y^'$ and $V_y^B = V_y^'^dagger U_y^'$
+$ (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^A tensor V_y^B) (P_y tensor II_B) ket(Psi^')_(A B) $
+Thus, we have
+$ ket(Psi^')_(A B) = (II_A tensor Q_y) ket(Psi)_(A B) = (U_y^A tensor V_y^B) (P_y tensor II_B) ket(Psi^')_(A B) $
+Hence, proven.
