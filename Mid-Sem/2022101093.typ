@@ -211,3 +211,15 @@ $ p(j) = 0 $
 Clearly, if $j dot z = 0$, only then $p(j)$ can be non-zero.
 
 Hence, proven.
+
+== (e)
+*To Find*: The number of queries to $f$ to determine $d$ classically
+
+*Solution*:
+We can use the fact that the function is either one-one or two-one depending on the choice of $d$.
+
+If we perform $2^(n-1) + 1$ queries, there are two cases
+1. If all the outputs are distinct, the function can't be two-one, as one of the outputs must have been repeated if it was. Thus, the function is one-one. Thus, $d$ is $0^n$.
+2. If any two outputs are same, say $f(x) = f(y) = z$, then we have $d = x xor y$
+
+Thus, always within $2^(n-1) + 1$ queries to $f$, one can determine $d$ classically.
