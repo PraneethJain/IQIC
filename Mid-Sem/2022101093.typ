@@ -176,3 +176,38 @@ $ ket(psi^')_(Q R) = H^(tensor n) 1/sqrt(2^n) sum_(x in {0, 1}^n) ket(x)_Q tenso
 $ ket(psi^')_(Q R) = 1/sqrt(2^n) sum_(x in {0, 1}^n) H^(tensor n) ket(x)_Q tensor ket(f(x))_R $
 $ ket(psi^')_(Q R) = 1/sqrt(2^n) sum_(x in {0, 1}^n) 1/sqrt(2^n)sum_(z in {0, 1}^n)(-1)^(x dot z) ket(z)_Q tensor ket(f(x))_R $
 $ ket(psi^')_(Q R) = 1/2^n sum_(x, z in {0, 1}^n)(-1)^(x dot z) ket(z)_Q tensor ket(f(x))_R $
+
+== (c)
+*To Prove*: Probability of getting outcome $j = j_1 dots j_n$ is given by
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) (1 + (-1)^(j dot d))ket(z) bar.double ^2 $
+
+*Proof*:
+$ ket(psi^')_(Q R) = 1/2^n sum_(x, z in {0, 1}^n)(-1)^(x dot z) ket(z)_Q tensor ket(f(x))_R $
+
+The coefficient of $ket(j)$ is
+$ ket(phi) = 1/2^n sum_(x in {0, 1}^n) (-1)^(x dot j) ket(f(x)) $
+Thus, the probability of measuring outcome $ket(j)$ is
+$ braket(phi, phi) $
+$ (1/2^n sum_(x in {0, 1}^n) (-1)^(x dot j) bra(f(x))) (1/2^n sum_(y in {0, 1}^n) (-1)^(y dot j) ket(f(y))) $
+$ 1/2^(2n) sum_(x,y in {0, 1}^n) (-1)^(x dot j + y dot j) braket(f(x), f(y)) $
+
+== (d)
+*To Prove*: $p(j)$ is nonzero only if $j dot z = 0$
+
+*Proof*:
+
+We know that $ j dot z = xor_(i=1)^n j_i z_i $
+Thus, either $j dot z = 0$ or $j dot z = 1$, since the xor of bits can only be a bit.
+
+If $j dot z = 0$,
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) (1 + (-1)^0) ket(z) bar.double ^2 $
+$ p(j) = bar.double 1/2^(n-1) sum_(z in "range"(f)) ket(z) bar.double ^2 $
+
+If otherwise, i.e, $j dot z = 1$
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) (1 + (-1)^1) ket(z) bar.double ^2 $
+$ p(j) = bar.double 1/2^n sum_(z in "range"(f)) 0 ket(z) bar.double ^2 $
+$ p(j) = 0 $
+
+Clearly, if $j dot z = 0$, only then $p(j)$ can be non-zero.
+
+Hence, proven.
