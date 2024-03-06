@@ -223,3 +223,49 @@ If we perform $2^(n-1) + 1$ queries, there are two cases
 2. If any two outputs are same, say $f(x) = f(y) = z$, then we have $d = x xor y$
 
 Thus, always within $2^(n-1) + 1$ queries to $f$, one can determine $d$ classically.
+
+== Question 8
+*Given*:
+- Arbitrary pure state $ket(Psi)_(A B)$
+- Measurement operators ${Q_y^B}_y$
+
+*To Prove*: There exists as set of measurement operators ${P_y^A}_y$ such that
+$ ket(Psi^')_(A B) = (II_A tensor Q_y^A) ket(Psi)_(A B) = (U_y^A tensor V_y^B)(P_y^A tensor II_B)ket(Psi)_(A B) $
+
+*Proof*:
+
+Consider the Schmidt decomposition of $ket(Psi)_(A B)$
+$ ket(Psi)_(A B) = sum_k alpha_k ket(u_k)_A tensor ket(v_k)_B $
+where $alpha_i$ are real and non-negative.
+We will be working in this basis.
+
+The probabilities of measurements in both the Hilbert spaces must be the same, so on applying the measurement operators to the respective states, we get the same outcome probabilties
+$ bra(Psi) II_A tensor Q_y ket(Psi) = bra(Psi) P_y tensor II_B ket(Psi) $
+$ (sum_k alpha_k bra(u_k)_A tensor bra(v_k)_B) II_A tensor Q_y (sum_k alpha_k ket(u_k)_A tensor ket(v_k)_B) = (sum_k alpha_k bra(u_k)_A tensor bra(v_k)_B) P_y tensor II_B (sum_k alpha_k ket(u_k)_A tensor ket(v_k)_B) $
+$ (sum_k alpha_k bra(u_k)_A tensor bra(v_k)_B) (sum_k alpha_k II_A ket(u_k)_A tensor Q_y ket(v_k)_B) = (sum_k alpha_k bra(u_k)_A tensor bra(v_k)_B) (sum_k alpha_k P_y ket(u_k)_A tensor II_B ket(v_k)_B) $
+$ (sum_k alpha_k bra(u_k)_A tensor bra(v_k)_B) (sum_k alpha_k ket(u_k)_A tensor Q_y ket(v_k)_B) = (sum_k alpha_k bra(u_k)_A tensor bra(v_k)_B) (sum_k alpha_k P_y ket(u_k)_A tensor ket(v_k)_B) $
+$ sum_(k_1, k_2) alpha_k_1 alpha_k_2 (bra(u_k_1)_A tensor bra(v_k_1)_B) (ket(u_k_2)_A tensor Q_y ket(v_k_2)_B) = sum_(k_1, k_2) alpha_k_1 alpha_k_2 (bra(u_k_1)_A tensor bra(v_k_1)_B) (P_y ket(u_k_2)_A tensor ket(v_k_2)) $
+$ sum_(k_1, k_2) alpha_k_1 alpha_k_2 braket(u_k_1, u_k_2)_A bra(v_k_1)_B Q_y ket(v_k_2)_B  = sum_(k_1, k_2) alpha_k_1 alpha_k_2 bra(u_k_1)_A P_y ket(u_k_2)_A braket(v_k_1, v_k_2)_B $
+$ sum_(k_1, k_2) alpha_k_1 alpha_k_2 delta_(k_1, k_2) bra(v_k_1)_B Q_y ket(v_k_2)_B = sum_(k_1, k_2) alpha_k_1 alpha_k_2 bra(u_k_1)_A P_y ket(u_k_2)_A delta_(k_1, k_2)  $
+$ sum_k alpha_k^2 bra(v_k)_B Q_y ket(v_k)_B  = sum_(k_1, k_2) alpha_k^2 bra(u_k_1)_A P_y ket(u_k_2)_A $
+On expressing $Q_y$ in the Schmidt basis
+$ sum_k alpha_k^2 bra(v_k)_B (sum_(i, j) q_(i j)ket(v_i)bra(v_j)) ket(v_k)_B  = sum_(k_1, k_2) alpha_k^2 bra(u_k_1)_A P_y ket(u_k_2)_A $
+$ sum_(i, j, k) alpha_k^2 q_(i j) braket(v_k, v_i) braket(v_j, v_k)  = sum_(k_1, k_2) alpha_k^2 bra(u_k_1)_A P_y ket(u_k_2)_A $
+$ sum_(i, j, k) alpha_k^2 q_(i j) delta_(i, k) delta_(j, k)  = sum_(k_1, k_2) alpha_k^2 bra(u_k_1)_A P_y ket(u_k_2)_A $
+$ sum_(k) alpha_k^2 q_(k k) = sum_(k_1, k_2) alpha_k^2 bra(u_k_1)_A P_y ket(u_k_2)_A $
+Thus, we get
+$ P_y = sum_(i, j) q_(i j) ket(u_i)bra(u_j) $
+Now, on applying the measurement, we get
+$ ket(Psi^')_(A B) = sum_k alpha_k P_y ket(u_k)_A tensor ket(v_k)_B $
+$ ket(Psi^')_(A B) = sum_k alpha_k (sum_(i, j) q_(i j) ket(u_i))bra(u_j) ket(u_k)_A tensor ket(v_k)_B $
+$ sum_(i, j, k) alpha_k  q_(i j) ket(u_i) braket(u_j, u_k) tensor ket(v_k) $
+$ ket(Psi^')_(A B) = sum_(i, j, k) alpha_k q_(i j) delta_(j, k) ket(u_i) tensor ket(v_k) $
+$ ket(Psi^')_(A B) = sum_(i, k) alpha_k q_(i k) ket(u_i) tensor ket(v_k) $
+and
+$ ket(Psi)_(A B) = sum_k alpha_k ket(u_k)_A tensor Q_y ket(v_k)_B $
+$ ket(Psi)_(A B) = sum_k alpha_k ket(u_k)_A tensor (sum_(i, j) q_(i j)ket(v_i)bra(v_j)) ket(v_k)_B $
+$ ket(Psi)_(A B) = sum_(i, j, k) alpha_k q_(i, j) ket(u_k) tensor ket(v_i)braket(v_j, v_k) $
+$ ket(Psi)_(A B) = sum_(i, j, k) alpha_k q_(i, j) delta_(j, k) ket(u_k) tensor ket(v_i) $
+$ ket(Psi)_(A B) = sum_(i, k) alpha_k q_(i, k) ket(u_k) tensor ket(v_i) $
+Thus
+$ ket(Psi^')_(A B) = (II_A tensor Q_y^A) ket(Psi)_(A B) $
